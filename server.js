@@ -25,10 +25,3 @@ app.listen(PORT, function() {
   console.log("App now listening at localhost:" + PORT);
 });
 
-// const connection = mysql.createConnection({
-//     host: "localhost",
-//     port: 3306,
-//     user: "root",
-//     password: "phish",
-//     database: "burgers_db"
-//   });
