@@ -2,7 +2,7 @@
 
 <h2>Burgers that Need to be DEVOURED!</h2>
 
-<div= "uneaten">
+<div class="uneaten">
 <ul>
    {{#each burgers}}
     {{#unless this.devoured}}
@@ -24,7 +24,7 @@
 </div>
 
 <h2>Burgers that have been DEVOURED!</h2>
-<div="eaten">
+<div class="eaten">
 <ul>
    {{#each burgers}}
    
@@ -52,13 +52,13 @@
 
 <script type="text/javascript">
 //// FOR THE ADDING BURGER
-
 $("#addburger").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
     const newBurger = {
-      burger_name: $("#addburger [name=burger]").val().trim()
+      burger_name: $("#addburger [name=burger]").val().trim(),
+      devoured: 0
     };
 
     // Send the POST request.
@@ -74,18 +74,28 @@ $("#addburger").on("submit", function(event) {
     );
   });
 
+// DEVOURED BURGER 
+  $(".devburger").on("click", function(event) {
+    const id = $(this).data("id-burgerid");
+    const newSleep = $(this).data("newsleep");
 
+    const newBurgerState = {
+      devoured: true
+    };
 
-
-
-/// THIS IS FOR tHE DEVFOUR BUTTON
-$(".devburger").on("click", function (event){
-  event.preventDefault();
-  console.log("we are tryinf to devour this burger")
-
-}
-
-)
+    // Send the PUT request.
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: newBurgerState
+    }).then(
+      function() {
+        console.log("changed burger to", newBurger);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+  
 
 
 
