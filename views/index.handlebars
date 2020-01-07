@@ -1,23 +1,25 @@
 <h1>Eat-Da-Burger!</h1>
 
 <h2>Burgers that Need to be DEVOURED!</h2>
-{{!-- <ul>
+<ul>
   {{#each burgers}}
-    {{#unless devour}}
-      {{> cats/cat-block sleep=true}}
+    {{#unless devoured}}
+      {{this.id}}
+      {{this.burger_name}}
     {{/unless}}
   {{/each}}
-</ul> --}}
+</ul>
 
 <h2>Burgers that have been DEVOURED!</h2>
 
-{{!-- <ul> --}}
-  {{!-- {{#each burgers}}
+<ul>
+  {{#each burgers}}
     {{#if devoured}}
-      {{> cats/cat-block sleep=false}}
+      {{this.id}}
+      {{this.burger_name}}
     {{/if}}
   {{/each}}
-</ul> --}}
+</ul>
 
 
 <h2>Add a Burger:</h2>
