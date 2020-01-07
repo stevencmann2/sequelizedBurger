@@ -14,7 +14,7 @@ router.get("/", function (req, res) {
 });
 
 router.post("/api/burgers", function (req, res) {
-  burger.selectOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function (result) { /////////MAKE SURE DEVOUR PERTAINS TO BODY
+  burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function (result) { /////////MAKE SURE DEVOUR PERTAINS TO BODY
     // Send back the ID of the new quote
     res.json({
       id: result.insertId
