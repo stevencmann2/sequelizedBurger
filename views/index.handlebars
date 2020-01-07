@@ -1,26 +1,47 @@
 <h1>Eat-Da-Burger!</h1>
 
 <h2>Burgers that Need to be DEVOURED!</h2>
+
+<div= "uneaten">
 <ul>
-  {{#each burgers}}
-    {{#unless devoured}}
+   {{#each burgers}}
+    {{#unless this.devoured}}
+   <li>
+  <p>
+   
       {{this.id}}
       {{this.burger_name}}
+      <form action="burgers/update/{{this.id}}?_method=PUT" method"POST">
+      <input type="hidden" name="devoured" value="true">
+      <button data-burgerid="{{this.id}}" class="devburger">Devour!</button>
+
+      </form>
+      </p>
+      </li>
     {{/unless}}
   {{/each}}
 </ul>
+</div>
 
 <h2>Burgers that have been DEVOURED!</h2>
-
+<div="eaten">
 <ul>
-  {{#each burgers}}
+   {{#each burgers}}
+   
+  <p>
     {{#if devoured}}
       {{this.id}}
       {{this.burger_name}}
+      <form action="burgers/update/{{this.id}}?_method=PUT" method"POST">
+      <input type="hidden" name="devoured" value="false">
+      <button data-burgerid="{{this.id}}" class="devburger">Devour!</button>
+
+      </form>
+      </p>
     {{/if}}
   {{/each}}
 </ul>
-
+</div="eaten">
 
 <h2>Add a Burger:</h2>
 <p>Enter a burger you want to eat Click the "Submit" button</p>
@@ -33,3 +54,16 @@
 
   <button type="submit">Submit</button>
 </form>
+
+<script type="text/javascript">
+$(".devburger").on("click", function (event){
+  event.preventDefault();
+  console.log("we are tryinf to devour this burger")
+  
+}
+
+)
+
+
+
+</script>
