@@ -1,3 +1,18 @@
 body {
-    background-color: lightblue;
+    background-image: url("../img/ffpaper.jpeg");
+  }
+
+  h1{
+    font-family: 'Baloo Bhai', cursive;
+    color: blue;
+  }
+
+  h2 {
+    font-family: 'Baloo Bhai', cursive;
+    color: blue;
+  }
+
+  #instructions {
+    font-family: 'Baloo Bhai', cursive;
+    color: blue;
   }
