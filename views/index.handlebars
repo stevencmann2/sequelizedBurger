@@ -1,13 +1,16 @@
-<div class="container text-center">
+<div class="container text-center mt-5">
 <h1>Eat-Da-Burger!</h1>
 
-<h2>Burgers that Need to be DEVOURED!</h2>
 
-<div class="uneaten">
-<ul>
+<div class="row mx-auto">
+  <div class="col-6">
+<h2>Burgers that Need to be DEVOURED!</h2>
+<div class="card uneaten mt-3 mb-2">
+  <div class="card-body">
+    <ul>
    {{#each burgers}}
     {{#unless this.devoured}}
-   <li>
+   
   <p>
    
       {{this.id}}
@@ -18,15 +21,19 @@
 
       </form>
       </p>
-      </li>
+      
     {{/unless}}
   {{/each}}
 </ul>
+  </div>
+</div>
 </div>
 
+<div class="col-6">
 <h2>Burgers that have been DEVOURED!</h2>
-<div class="eaten">
-<ul>
+<div class="card eaten mt-3 mb-2">
+  <div class="card-body">
+    <ul>
    {{#each burgers}}
    
   <p>
@@ -37,13 +44,23 @@
     {{/if}}
   {{/each}}
 </ul>
-</div="eaten">
+  </div>
+</div>
+</div>
+</div>
 
+
+<div class = "row">
+<div class="col-8 mx-auto">
+<div class="burgeraddDiv mt-3 mb-5">
 <h2>Add a Burger:</h2>
 <p>Enter a burger you want to eat Click the "Submit" button</p>
 <form id="addburger" class="button-size">
 	<textarea type="text" name="burger"></textarea>
 	<button type="submit">Submit Burger!</button>
 </form>
+</div>
+</div>
+</div>
 </div>
 
