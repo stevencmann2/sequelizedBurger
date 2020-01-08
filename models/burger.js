@@ -1,7 +1,6 @@
 const orm = require('../config/orm.js');
 
 
-
 const burger = {
     selectAll: function (cb) {
         orm.selectAll("burgers", function (res) {
@@ -20,21 +19,6 @@ const burger = {
         });
     }
 };
-
-
-
-
-
-// // select all from table
-// orm.selectAll("burgers");
-
-// // Insert One into the Table
-// //table, tableCol, valOfCol.
-// orm.insertOne("burgers", "burger_name", ""); //// EMPTY STRING? for value? or function?
-
-// //Update one in the table
-// // table, tableCol, valOfCol, tableColtwo, valofColtwo
-// orm.updateOne("burgers", "burger_name", "id", "");
 
 
 module.exports = burger;

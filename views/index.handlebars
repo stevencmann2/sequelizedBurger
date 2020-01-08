@@ -32,11 +32,6 @@
     {{#if devoured}}
       {{this.id}}
       {{this.burger_name}}
-      <form action="burgers/update/{{this.id}}?_method=PUT" method"POST">
-      <input type="hidden" name="devoured" value="true">
-      <button data-burgerid="{{this.id}}" class="devburger">Devour!</button>
-
-      </form>
       </p>
     {{/if}}
   {{/each}}
@@ -49,54 +44,3 @@
 	<textarea type="text" name="burger"></textarea>
 	<button type="submit">Submit Burger!</button>
 </form>
-
-<script type="text/javascript">
-//// FOR THE ADDING BURGER
-$("#addburger").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    const newBurger = {
-      burger_name: $("#addburger [name=burger]").val().trim(),
-      devoured: 0
-    };
-
-    // Send the POST request.
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function() {
-        console.log("added new burger");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-// DEVOURED BURGER 
-  $(".devburger").on("click", function(event) {
-    const id = $(this).data("id-burgerid");
-    const newSleep = $(this).data("newsleep");
-
-    const newBurgerState = {
-      devoured: true
-    };
-
-    // Send the PUT request.
-    $.ajax("/api/burgers/" + id, {
-      type: "PUT",
-      data: newBurgerState
-    }).then(
-      function() {
-        console.log("changed burger to", newBurger);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-  
-
-
-
-</script>
