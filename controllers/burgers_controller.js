@@ -4,11 +4,11 @@ const db = require('../models');
 
 
 router.get("/", function (req, res) {
-  db.Burger.findAll({}).then(function (data) {
+  db.burger.findAll({}).then(function (data) {
     const hbsObject = {
       burgers: data
     };
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
