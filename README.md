@@ -2,13 +2,13 @@
 
 **Overview:**
 
-This repo contains a burger logger using MySQL, Node, Express, Handlebars and a homemade ORM. The application utilizes the MVC model, requires Node and MySQL to query and route data, &amp; Handlebars to generate the HTML. 
+This repo contains a burger logger updated using Sequelize, Node, Express, and Handlebars. The application utilizes the MVC model, requires Node and Sequelize to query and route data, &amp; Handlebars to generate the HTML. 
 
 **Tech Used:**
 
 - Node
 - Heroku
-- MySQL
+- Sequelize
 - Javascript
 - JQuery
 - Handlebars
@@ -18,7 +18,6 @@ This repo contains a burger logger using MySQL, Node, Express, Handlebars and a 
 
 - Mustache Templates
 - Full-stack Development
-- ORM (Object Relational Mapping)
 - MVC (Model View Controller)
 
 **Deployed Heroku Link**
