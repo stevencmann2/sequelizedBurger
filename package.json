@@ -12,12 +12,11 @@
     "url": "git+https://github.com/stevencmann2/burger.git"
   },
   "keywords": [
-    "MySQL",
+    "Sequelize",
     "Node",
     "Express",
     "Burger",
     "Handlebars",
-    "ORM",
     "MVC",
     "HTML"
   ],
