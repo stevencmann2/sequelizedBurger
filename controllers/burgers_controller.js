@@ -13,34 +13,44 @@ router.get("/", function (req, res) {
   });
 });
 
-// router.post("/api/burgers", function (req, res) {
-//   burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function (result) { /////////MAKE SURE DEVOUR PERTAINS TO BODY
-    
-//     res.json({
-//       id: result.insertId
-//     });
-//   });
-// });
+router.post("/api/burgers", function (req, res) {
 
-// router.put("/api/burgers/:id", function (req, res) {
-//   var condition = "id = " + req.params.id;
 
-//   console.log("condition", condition);
+  db.burger.create({
+      burger_name: req.body.burger_name,
+      devoured: req.body.devoured
+    }).then(function(data) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(data);
+    })
+      .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        res.json(err);
+      });
+  });
 
-//   burger.updateOne({
-//       devoured: req.body.devoured 
-//     },
-//     condition,
-//     function (result) {
-//       if (result.changedRows === 0) {
-        
-//         return res.status(404).end();
-//       }
-//       res.status(200).end();
+router.put("/api/burgers/:id", function (req, res) {
+ 
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.burger.update({
+      devoured: req.body.devoured
+    }, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    })
+      .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        res.json(err);
+      });
+    console.log("id : "+ req.params.id + "devoured : " + req.body.devoured)
+  });
 
-//     }
-//   );
-// });
 
 
 

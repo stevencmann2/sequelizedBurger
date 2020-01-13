@@ -26,9 +26,9 @@ $("#addburger").on("submit", function(event) {
   $(".devburger").on("click", function(event) {
     event.preventDefault();
     const id = $(this).data("burgerid");
-    
+  
     const newBurgerState = {
-      devoured: 1
+      devoured: true
     };
 
     // Send the PUT request.
