@@ -1,4 +1,4 @@
-# burger
+# Sequelized Burger
 
 **Overview:**
 
